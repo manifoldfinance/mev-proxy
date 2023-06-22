@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.9.0) (proxy/transparent/TransparentUpgradeableProxy.sol)
 
-pragma solidity ^0.8.19;
+pragma solidity 0.8.19;
 
 import "./ERC1967Proxy.sol";
 import "./interfaces/IERC1967.sol";
