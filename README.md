@@ -13,7 +13,7 @@ ape run scripts/deploy.py deploy --network <RPC_URL>
 ## Deployment Addresses
 
 Deployed Addressed of the mev-eth contract proxies can be found at
-
+```
 Ethereum -
 BNB -
 Avalanche -
@@ -32,3 +32,4 @@ Canto -
 zkSync Era - 
 Moonriver - 
 Arbitrum Nova - 
+```
