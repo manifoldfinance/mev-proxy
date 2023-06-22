@@ -10,11 +10,6 @@ ape accounts import alfa
 ape run scripts/deploy.py deploy --network <RPC_URL>
 ```
 
-## Deployment Scripts
-
-```
-ape scripts run 
-
 ## Deployment Addresses
 
 Deployed Addressed of the mev-eth contract proxies can be found at
