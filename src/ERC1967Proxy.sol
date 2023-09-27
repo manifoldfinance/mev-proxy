@@ -1,26 +1,39 @@
-// SPDX-License-Identifier: MIT
-// OpenZeppelin Contracts (last updated v4.7.0) (proxy/ERC1967/ERC1967Proxy.sol)
+/// SPDX-License-Identifier: MIT
 
-pragma solidity 0.8.19;
+pragma solidity ^0.8.19;
 
-import "./Proxy.sol";
-import "./ERC1967Utils.sol";
+import {Proxy} from "./Proxy.sol";
+import {ERC1967Utils} from "./ERC1967Utils.sol";
+
+/// @title ERC1967Proxy
+/// @author OpenZeppelin
+/// @custom:source OpenZeppelin Contracts (last updated v4.7.0) (proxy/ERC1967/ERC1967Proxy.sol)
 
 /**
+ * [!NOTE]
  * @dev This contract implements an upgradeable proxy. It is upgradeable because calls are delegated to an
- * implementation address that can be changed. This address is stored in storage in the location specified by
- * https://eips.ethereum.org/EIPS/eip-1967[EIP1967], so that it doesn't conflict with the storage layout of the
- * implementation behind the proxy.
+ *     implementation address that can be changed. 
+ *    
+ *    [!EIP1967]
+ *    This address is stored in storage in the location specified by:
+ *     <https://eips.ethereum.org/EIPS/eip-1967> 
+ *     so that it doesn't conflict with the storage layout of the implementation behind the proxy.
+ *
  */
+
 contract ERC1967Proxy is Proxy {
     /**
      * @dev Initializes the upgradeable proxy with an initial implementation specified by `_logic`.
      *
      * If `_data` is nonempty, it's used as data in a delegate call to `_logic`. This will typically be an encoded
      * function call, and allows initializing the storage of the proxy like a Solidity constructor.
+     *
+     * @custom:requirements
+     *
+     * - If `data` is empty, `msg.value` must be zero.
      */
     constructor(address _logic, bytes memory _data) payable {
-        ERC1967Utils.upgradeToAndCall(_logic, _data, false);
+        ERC1967Utils.upgradeToAndCall(_logic, _data);
     }
 
     /**
